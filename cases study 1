@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIT Nagpur Department</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+    url("sit.jpg");
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+header{
+    background:#002147;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header h2{
+    margin-top:10px;
+    font-weight:normal;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+    padding:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(5px);
+    padding:30px;
+    border-radius:12px;
+    margin-bottom:30px;
+}
+
+.card h2{
+    color:#FFD700;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:30px;
+    font-size:18px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff9800;
+    border:none;
+    color:white;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff5722;
+    transform:scale(1.05);
+}
+
+#student{
+    display:none;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table,tr,td,th{
+    border:1px solid white;
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#003366;
+}
+
+footer{
+    background:#002147;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+
+<script>
+// Internal JavaScript
+console.log("Internal JavaScript Loaded");
+
+function welcomeMessage(){
+    alert("Welcome to SIT Nagpur");
+    console.log("Welcome Alert Displayed");
+}
+
+function showStudent(){
+    document.getElementById("student").style.display="block";
+    location.href="#student";
+    console.log("Student Information Displayed");
+}
+
+function showDepartment(){
+    alert("Department of Computer Science & Engineering\nSymbiosis Institute of Technology, Nagpur");
+    console.log("Department Button Clicked");
+}
+</script>
+
+</head>
+
+<body onload="welcomeMessage()">
+
+<header>
+<h1>Symbiosis Institute of Technology</h1>
+<h2>Department of Computer Science & Engineering</h2>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>About Department</h2>
+
+<p>
+The Department of Computer Science & Engineering provides quality education
+in Programming, Artificial Intelligence, Data Science, Web Development,
+Cloud Computing, Cyber Security and Software Engineering.
+Students are encouraged to develop practical skills through projects,
+workshops and industry internships.
+</p>
+
+<button onclick="showDepartment()">Know More</button>
+
+<button onclick="showStudent()">Student Information</button>
+
+</div>
+
+<div class="card" id="student">
+
+<h2>Student Information</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<td>Nandini Daharwal</td>
+</tr>
+
+<tr>
+<th>PRN</th>
+<td>24070521152</td>
+</tr>
+
+<tr>
+<th>Branch</th>
+<td>Computer Science & Engineering</td>
+</tr>
+
+<tr>
+<th>College</th>
+<td>Symbiosis Institute of Technology, Nagpur</td>
+</tr>
+
+<tr>
+<th>Semester</th>
+<td>III</td>
+</tr>
+
+<tr>
+<th>Skills</th>
+<td>HTML, CSS, JavaScript, C, Python, Java</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Symbiosis Institute of Technology, Nagpur
+</footer>
+
+<script>
+// External JavaScript Example
+console.log("External JavaScript Example Executed");
+</script>
+
+</body>
+</html>
