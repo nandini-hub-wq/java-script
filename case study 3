@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarship Eligibility System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:600px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h1{
+    text-align:center;
+    color:#003366;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    font-size:17px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#003366;
+    color:white;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+#result{
+    margin-top:25px;
+    background:#eef5ff;
+    padding:20px;
+    border-radius:10px;
+    display:none;
+}
+
+h2{
+    color:#003366;
+}
+
+p{
+    font-size:18px;
+    margin:10px 0;
+}
+</style>
+
+<script>
+
+function checkScholarship(){
+
+    let name=document.getElementById("name").value.trim();
+    let marks=parseFloat(document.getElementById("marks").value);
+
+    if(name==""){
+        alert("Please enter student name.");
+        return;
+    }
+
+    if(isNaN(marks)){
+        alert("Please enter marks.");
+        return;
+    }
+
+    if(marks<0 || marks>100){
+        alert("Marks should be between 0 and 100.");
+        return;
+    }
+
+    let scholarship="";
+    let grade="";
+
+    if(marks>=90){
+        scholarship="🏆 100% Scholarship";
+        grade="A+";
+    }
+    else if(marks>=80){
+        scholarship="🥇 75% Scholarship";
+        grade="A";
+    }
+    else if(marks>=70){
+        scholarship="🥈 50% Scholarship";
+        grade="B";
+    }
+    else if(marks>=60){
+        scholarship="🥉 25% Scholarship";
+        grade="C";
+    }
+    else{
+        scholarship="❌ Not Eligible";
+        grade="D";
+    }
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("result").innerHTML=`
+        <h2>Scholarship Result</h2>
+        <p><strong>Student Name:</strong> ${name}</p>
+        <p><strong>Marks:</strong> ${marks}</p>
+        <p><strong>Grade:</strong> ${grade}</p>
+        <p><strong>Scholarship:</strong> ${scholarship}</p>
+    `;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎓 Scholarship Eligibility System</h1>
+
+<input type="text" id="name" placeholder="Enter Student Name">
+
+<input type="number" id="marks" placeholder="Enter Marks (0-100)">
+
+<button onclick="checkScholarship()">Check Scholarship</button>
+
+<div id="result"></div>
+
+</div>
+
+</body>
+</html>
