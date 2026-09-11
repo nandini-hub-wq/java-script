@@ -1,0 +1,550 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Cart Calculator</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 15px;
+    background:linear-gradient(135deg,#fbc2eb,#a6c1ee,#c2ffd8);
+}
+
+.container{
+    width:100%;
+    max-width:900px;
+    background:rgba(255,255,255,0.95);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,0.18);
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    padding:30px;
+    color:white;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+}
+
+.header h1{
+    font-size:32px;
+    margin-bottom:7px;
+}
+
+.header p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* STUDENT DETAILS */
+
+.student-info{
+    margin:20px 30px 0;
+    padding:12px 18px;
+    background:#fdf2f8;
+    border-left:5px solid #ec4899;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    font-weight:600;
+    color:#701a75;
+}
+
+/* CONTENT */
+
+.content{
+    padding:30px;
+}
+
+.input-area{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:12px;
+    margin-bottom:25px;
+}
+
+input{
+    padding:12px;
+    border:1.5px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 0 3px rgba(139,92,246,0.12);
+}
+
+.add-btn{
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#8b5cf6,#ec4899);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* CART ITEMS */
+
+.cart-title{
+    margin-bottom:15px;
+    color:#4c1d95;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr auto;
+    align-items:center;
+    gap:10px;
+
+    background:#faf5ff;
+    border:1px solid #ede9fe;
+    padding:14px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.cart-item strong{
+    color:#4c1d95;
+}
+
+.remove-btn{
+    border:none;
+    background:#fee2e2;
+    color:#dc2626;
+    padding:7px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* SUMMARY */
+
+.summary{
+    margin-top:25px;
+    background:linear-gradient(135deg,#f5f3ff,#fdf2f8);
+    border-radius:18px;
+    padding:22px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    color:#374151;
+}
+
+.discount{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.total{
+    margin-top:15px;
+    padding-top:15px;
+    border-top:2px dashed #d8b4fe;
+    font-size:21px;
+    font-weight:bold;
+    color:#6d28d9;
+}
+
+/* BADGE */
+
+.badge{
+    display:inline-block;
+    margin-top:12px;
+    background:#dcfce7;
+    color:#15803d;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    padding:25px;
+    color:#9ca3af;
+    background:#f9fafb;
+    border-radius:12px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    background:#f8fafc;
+    padding:16px;
+    font-size:12px;
+    color:#6b7280;
+}
+
+.footer strong{
+    color:#7c3aed;
+}
+
+@media(max-width:700px){
+
+    .input-area{
+        grid-template-columns:1fr;
+    }
+
+    .cart-item{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .student-info{
+        flex-direction:column;
+        gap:5px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🛍 Smart Cart Calculator</h1>
+        <p>Array Methods • Object Handling • Discount Logic</p>
+    </div>
+
+    <div class="student-info">
+        <span>👩‍💻 Nandini Daharwal</span>
+        <span>🎓 PRN: 24070521152</span>
+    </div>
+
+    <div class="content">
+
+        <div class="input-area">
+
+            <input type="text"
+                   id="productName"
+                   placeholder="Product Name">
+
+            <input type="number"
+                   id="productPrice"
+                   placeholder="Price">
+
+            <input type="number"
+                   id="productQuantity"
+                   placeholder="Quantity">
+
+            <button class="add-btn"
+                    onclick="addProduct()">
+                + Add
+            </button>
+
+        </div>
+
+        <h3 class="cart-title">
+            🛒 Your Shopping Cart
+        </h3>
+
+        <div id="cartList"></div>
+
+        <div class="summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+
+            <div class="summary-row discount">
+                <span>Discount</span>
+                <span id="discount">₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>GST (5%)</span>
+                <span id="gst">₹0</span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Final Amount</span>
+                <span id="finalTotal">₹0</span>
+            </div>
+
+            <div id="offerMessage"></div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Designed by <strong>Nandini Daharwal</strong>
+        | PRN: <strong>24070521152</strong>
+    </div>
+
+</div>
+
+
+<script>
+
+/* Array of Product Objects */
+
+let cart = [];
+
+
+/* ADD PRODUCT */
+
+function addProduct(){
+
+    const name =
+        document.getElementById("productName").value.trim();
+
+    const price =
+        Number(document.getElementById("productPrice").value);
+
+    const quantity =
+        Number(document.getElementById("productQuantity").value);
+
+
+    if(name === "" || price <= 0 || quantity <= 0){
+
+        alert("Please enter valid product details.");
+        return;
+    }
+
+
+    /* Creating an Object */
+
+    const product = {
+        name: name,
+        price: price,
+        quantity: quantity
+    };
+
+
+    /* push() Array Method */
+
+    cart.push(product);
+
+
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productQuantity").value = "";
+
+
+    displayCart();
+}
+
+
+/* DISPLAY PRODUCTS */
+
+function displayCart(){
+
+    const cartList =
+        document.getElementById("cartList");
+
+
+    if(cart.length === 0){
+
+        cartList.innerHTML =
+        `<div class="empty">
+            🛒 Your cart is currently empty.
+        </div>`;
+
+        calculateTotal();
+
+        return;
+    }
+
+
+    /*
+       map() converts each object
+       into HTML
+    */
+
+    cartList.innerHTML =
+    cart.map((product,index) => {
+
+        let productTotal =
+            product.price * product.quantity;
+
+        return `
+
+        <div class="cart-item">
+
+            <strong>
+                ${product.name}
+            </strong>
+
+            <span>
+                ₹${product.price.toFixed(2)}
+            </span>
+
+            <span>
+                Qty: ${product.quantity}
+            </span>
+
+            <span>
+                ₹${productTotal.toFixed(2)}
+            </span>
+
+            <button
+                class="remove-btn"
+                onclick="removeProduct(${index})">
+
+                ✕ Remove
+
+            </button>
+
+        </div>
+
+        `;
+
+    }).join("");
+
+
+    calculateTotal();
+}
+
+
+/* REMOVE PRODUCT */
+
+function removeProduct(index){
+
+    /*
+       filter() creates a new array
+       without the selected product
+    */
+
+    cart = cart.filter(
+        (product,i) => i !== index
+    );
+
+    displayCart();
+}
+
+
+/* TOTAL CALCULATION */
+
+function calculateTotal(){
+
+    /*
+       reduce() calculates total
+       price of all products
+    */
+
+    let subtotal = cart.reduce(
+        (total,product) =>
+        total + product.price * product.quantity,
+        0
+    );
+
+
+    let discountRate = 0;
+    let message = "";
+
+
+    /* Discount Logic */
+
+    if(subtotal >= 5000){
+
+        discountRate = 20;
+
+        message =
+        "🎉 Amazing! You received 20% discount.";
+
+    }
+
+    else if(subtotal >= 3000){
+
+        discountRate = 15;
+
+        message =
+        "✨ Great! You received 15% discount.";
+
+    }
+
+    else if(subtotal >= 1000){
+
+        discountRate = 10;
+
+        message =
+        "💝 You received 10% discount.";
+
+    }
+
+    else{
+
+        message =
+        "🛍 Shop for ₹1000 or more to unlock a discount.";
+
+    }
+
+
+    let discount =
+        subtotal * discountRate / 100;
+
+
+    let amountAfterDiscount =
+        subtotal - discount;
+
+
+    let gst =
+        amountAfterDiscount * 0.05;
+
+
+    let finalAmount =
+        amountAfterDiscount + gst;
+
+
+    document.getElementById("subtotal").innerText =
+        "₹" + subtotal.toFixed(2);
+
+
+    document.getElementById("discount").innerText =
+        "- ₹" + discount.toFixed(2);
+
+
+    document.getElementById("gst").innerText =
+        "₹" + gst.toFixed(2);
+
+
+    document.getElementById("finalTotal").innerText =
+        "₹" + finalAmount.toFixed(2);
+
+
+    document.getElementById("offerMessage").innerHTML =
+        `<span class="badge">${message}</span>`;
+}
+
+
+/* Initial Display */
+
+displayCart();
+
+</script>
+
+</body>
+</html>
+```
