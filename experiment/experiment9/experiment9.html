@@ -1,0 +1,1083 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theme Preference Studio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    transition:0.5s;
+    position:relative;
+}
+
+/* =========================
+   COLORFUL BACKGROUNDS
+========================= */
+
+body.sunset{
+    background:
+        linear-gradient(rgba(255,255,255,0.10),rgba(255,255,255,0.05)),
+        radial-gradient(circle at 15% 20%,#ffd6e8 0%,transparent 25%),
+        radial-gradient(circle at 85% 25%,#fbc2eb 0%,transparent 26%),
+        radial-gradient(circle at 20% 85%,#a6c1ee 0%,transparent 30%),
+        linear-gradient(135deg,#ffecd2,#fcb69f,#c471ed,#12c2e9);
+}
+
+body.ocean{
+    background:
+        radial-gradient(circle at 15% 20%,#67e8f9,transparent 25%),
+        radial-gradient(circle at 85% 80%,#818cf8,transparent 30%),
+        linear-gradient(135deg,#0f172a,#0f766e,#2563eb,#7c3aed);
+}
+
+body.candy{
+    background:
+        radial-gradient(circle at top left,#f9a8d4,transparent 30%),
+        radial-gradient(circle at bottom right,#c4b5fd,transparent 30%),
+        linear-gradient(135deg,#fef3c7,#fbcfe8,#ddd6fe,#bfdbfe);
+}
+
+body.forest{
+    background:
+        radial-gradient(circle at 20% 30%,#86efac,transparent 25%),
+        radial-gradient(circle at 85% 20%,#fde68a,transparent 25%),
+        linear-gradient(135deg,#14532d,#15803d,#65a30d,#0f766e);
+}
+
+/* =========================
+   DECORATIVE BLOBS
+========================= */
+
+.shape{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:0.35;
+    z-index:0;
+    animation:float 8s ease-in-out infinite;
+}
+
+.shape1{
+    width:160px;
+    height:160px;
+    background:#ffffff;
+    top:5%;
+    left:5%;
+}
+
+.shape2{
+    width:220px;
+    height:220px;
+    background:#fef08a;
+    right:4%;
+    top:18%;
+    animation-delay:2s;
+}
+
+.shape3{
+    width:180px;
+    height:180px;
+    background:#f0abfc;
+    bottom:4%;
+    left:10%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px) translateX(0px);
+    }
+
+    50%{
+        transform:translateY(-18px) translateX(12px);
+    }
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+.page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    position:relative;
+    z-index:1;
+}
+
+.container{
+    width:100%;
+    max-width:950px;
+    display:grid;
+    grid-template-columns:0.9fr 1.3fr;
+    overflow:hidden;
+    border-radius:30px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.38);
+    box-shadow:0 30px 80px rgba(0,0,0,0.22);
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.left-panel{
+    padding:45px 35px;
+    color:white;
+    background:
+        linear-gradient(
+            160deg,
+            rgba(49,46,129,0.82),
+            rgba(126,34,206,0.72),
+            rgba(219,39,119,0.65)
+        );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.logo{
+    width:72px;
+    height:72px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:22px;
+    font-size:34px;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 10px 28px rgba(0,0,0,0.15);
+    margin-bottom:20px;
+}
+
+.left-panel h1{
+    font-size:38px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.left-panel p{
+    line-height:1.7;
+    font-size:14px;
+    color:#f5f3ff;
+}
+
+.student-card{
+    margin-top:30px;
+    background:rgba(255,255,255,0.14);
+    padding:18px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.20);
+}
+
+.student-card p{
+    margin:4px 0;
+}
+
+.storage-mini{
+    margin-top:18px;
+    display:grid;
+    gap:10px;
+}
+
+.storage-pill{
+    background:rgba(255,255,255,0.12);
+    padding:11px 13px;
+    border-radius:12px;
+    font-size:12px;
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.right-panel{
+    background:rgba(255,255,255,0.92);
+    padding:38px;
+}
+
+.top-title{
+    margin-bottom:24px;
+}
+
+.top-title h2{
+    font-size:27px;
+    color:#312e81;
+    margin-bottom:6px;
+}
+
+.top-title p{
+    color:#64748b;
+    font-size:13px;
+}
+
+/* =========================
+   THEME CARDS
+========================= */
+
+.section-title{
+    font-size:14px;
+    font-weight:700;
+    color:#374151;
+    margin-bottom:12px;
+}
+
+.theme-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.theme-card{
+    height:95px;
+    border-radius:16px;
+    border:3px solid transparent;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-end;
+    padding:10px;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.theme-card:hover{
+    transform:translateY(-5px) scale(1.02);
+}
+
+.theme-card.active{
+    border-color:#ffffff;
+    outline:3px solid #7c3aed;
+}
+
+.sunset-card{
+    background:linear-gradient(135deg,#fb7185,#f97316,#a855f7);
+}
+
+.ocean-card{
+    background:linear-gradient(135deg,#06b6d4,#2563eb,#4f46e5);
+}
+
+.candy-card{
+    background:linear-gradient(135deg,#f9a8d4,#c4b5fd,#93c5fd);
+    color:#4c1d95;
+}
+
+.forest-card{
+    background:linear-gradient(135deg,#16a34a,#65a30d,#0f766e);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-card{
+    background:linear-gradient(135deg,#faf5ff,#ffffff);
+    border:1px solid #ede9fe;
+    border-radius:20px;
+    padding:22px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    color:#4b5563;
+    margin-bottom:7px;
+}
+
+.form-group input{
+    width:100%;
+    padding:13px 14px;
+    border-radius:12px;
+    border:1.5px solid #d8b4fe;
+    outline:none;
+    font-size:14px;
+    transition:0.3s;
+    background:white;
+}
+
+.form-group input:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 0 4px rgba(139,92,246,0.10);
+}
+
+/* =========================
+   PREVIEW CARD
+========================= */
+
+.preview{
+    margin-top:20px;
+    border-radius:18px;
+    padding:18px;
+    color:white;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    box-shadow:0 10px 30px rgba(124,58,237,0.18);
+}
+
+.preview small{
+    opacity:0.8;
+}
+
+.preview h3{
+    margin:6px 0 4px;
+    font-size:21px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:20px;
+}
+
+button{
+    padding:13px;
+    border:none;
+    border-radius:13px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.save-btn{
+    color:white;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    box-shadow:0 8px 20px rgba(124,58,237,0.20);
+}
+
+.clear-btn{
+    color:#7c3aed;
+    background:#ede9fe;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+}
+
+.success{
+    display:block !important;
+    background:#dcfce7;
+    color:#15803d;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+    color:#64748b;
+    font-size:12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .theme-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:500px){
+
+    .right-panel{
+        padding:25px 18px;
+    }
+
+    .left-panel{
+        padding:30px 22px;
+    }
+
+    .left-panel h1{
+        font-size:31px;
+    }
+
+    .button-row{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body class="sunset">
+
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+<div class="shape shape3"></div>
+
+
+<div class="page">
+
+
+<div class="container">
+
+
+<!-- ========================
+     LEFT SIDE
+======================== -->
+
+<div class="left-panel">
+
+    <div>
+
+        <div class="logo">
+            🎨
+        </div>
+
+        <h1>
+            My Theme
+            <br>
+            Studio
+        </h1>
+
+        <p>
+            Personalize your webpage with your favourite
+            theme and save preferences using JavaScript
+            Web Storage.
+        </p>
+
+
+        <div class="student-card">
+
+            <p>
+                👩‍💻 <strong>Nandini Daharwal</strong>
+            </p>
+
+            <p>
+                🎓 PRN: <strong>24070521152</strong>
+            </p>
+
+            <p>
+                💻 JavaScript Experiment 09
+            </p>
+
+        </div>
+
+
+        <div class="storage-mini">
+
+            <div class="storage-pill">
+                💾 localStorage → Theme & Name
+            </div>
+
+            <div class="storage-pill">
+                ⏳ sessionStorage → Session Message
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================
+     RIGHT SIDE
+======================== -->
+
+<div class="right-panel">
+
+
+    <div class="top-title">
+
+        <h2>
+            ✨ Personalize Your Space
+        </h2>
+
+        <p>
+            Select a colorful background and save your preferences.
+        </p>
+
+    </div>
+
+
+    <!-- THEME SELECTION -->
+
+    <div class="section-title">
+        🌈 Choose Background Theme
+    </div>
+
+
+    <div class="theme-grid">
+
+
+        <div
+            class="theme-card sunset-card active"
+            onclick="changeTheme('sunset',this)">
+
+            🌅 Sunset
+
+        </div>
+
+
+        <div
+            class="theme-card ocean-card"
+            onclick="changeTheme('ocean',this)">
+
+            🌊 Ocean
+
+        </div>
+
+
+        <div
+            class="theme-card candy-card"
+            onclick="changeTheme('candy',this)">
+
+            🍭 Candy
+
+        </div>
+
+
+        <div
+            class="theme-card forest-card"
+            onclick="changeTheme('forest',this)">
+
+            🌿 Forest
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- USER FORM -->
+
+    <div class="form-card">
+
+
+        <div class="form-group">
+
+            <label>
+                👤 Your Display Name
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your name"
+                oninput="updatePreview()">
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>
+                💭 Session Message
+            </label>
+
+            <input
+                type="text"
+                id="sessionNote"
+                placeholder="Example: Today I will complete my JavaScript lab"
+                oninput="updatePreview()">
+
+        </div>
+
+
+        <!-- LIVE PREVIEW -->
+
+        <div class="preview">
+
+            <small>
+                LIVE PREVIEW
+            </small>
+
+            <h3 id="previewName">
+                Hello, Nandini! 👋
+            </h3>
+
+            <p id="previewNote">
+                Your session message will appear here.
+            </p>
+
+        </div>
+
+
+
+        <div class="button-row">
+
+
+            <button
+                class="save-btn"
+                onclick="savePreferences()">
+
+                💾 Save My Preferences
+
+            </button>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearPreferences()">
+
+                🧹 Reset Preferences
+
+            </button>
+
+
+        </div>
+
+
+        <div id="message">
+            ✅ Preferences saved successfully!
+        </div>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        Created by
+        <strong>Nandini Daharwal</strong>
+        • PRN 24070521152
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================
+   DEFAULT THEME
+===================================== */
+
+let selectedTheme = "sunset";
+
+
+
+/* =====================================
+   CHANGE THEME
+===================================== */
+
+function changeTheme(theme,card){
+
+
+    selectedTheme = theme;
+
+
+    /*
+       Change webpage background
+    */
+
+    document.body.className =
+        theme;
+
+
+    /*
+       Remove active class
+       from all theme cards
+    */
+
+    const cards =
+        document.querySelectorAll(
+            ".theme-card"
+        );
+
+
+    cards.forEach(function(item){
+
+        item.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    /*
+       Highlight selected card
+    */
+
+    card.classList.add(
+        "active"
+    );
+
+
+    /*
+       Save theme using
+       localStorage
+    */
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+
+}
+
+
+
+/* =====================================
+   SAVE PREFERENCES
+===================================== */
+
+function savePreferences(){
+
+
+    const username =
+        document
+        .getElementById("username")
+        .value
+        .trim();
+
+
+    const sessionNote =
+        document
+        .getElementById("sessionNote")
+        .value
+        .trim();
+
+
+    /*
+       localStorage:
+       Saves data permanently
+    */
+
+    localStorage.setItem(
+        "username",
+        username
+    );
+
+
+    localStorage.setItem(
+        "theme",
+        selectedTheme
+    );
+
+
+    /*
+       sessionStorage:
+       Saves data for current tab
+    */
+
+    sessionStorage.setItem(
+        "sessionNote",
+        sessionNote
+    );
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.className =
+        "success";
+
+
+    message.innerHTML =
+        "✅ Your colorful preferences are saved!";
+
+
+    setTimeout(function(){
+
+        message.className = "";
+
+    },2500);
+
+
+    updatePreview();
+
+}
+
+
+
+/* =====================================
+   LIVE PREVIEW
+===================================== */
+
+function updatePreview(){
+
+
+    const name =
+        document
+        .getElementById("username")
+        .value
+        .trim();
+
+
+    const note =
+        document
+        .getElementById("sessionNote")
+        .value
+        .trim();
+
+
+    document.getElementById(
+        "previewName"
+    ).innerText =
+
+        name
+        ? "Hello, " + name + "! 👋"
+        : "Hello, Guest! 👋";
+
+
+    document.getElementById(
+        "previewNote"
+    ).innerText =
+
+        note
+        ? note
+        : "Your session message will appear here.";
+
+}
+
+
+
+/* =====================================
+   LOAD SAVED PREFERENCES
+===================================== */
+
+window.onload = function(){
+
+
+    const savedTheme =
+        localStorage.getItem(
+            "theme"
+        );
+
+
+    const savedName =
+        localStorage.getItem(
+            "username"
+        );
+
+
+    const savedNote =
+        sessionStorage.getItem(
+            "sessionNote"
+        );
+
+
+    if(savedTheme){
+
+        selectedTheme =
+            savedTheme;
+
+
+        document.body.className =
+            savedTheme;
+
+
+        const cards =
+            document.querySelectorAll(
+                ".theme-card"
+            );
+
+
+        cards.forEach(function(card){
+
+            card.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        const selectedCard =
+            document.querySelector(
+                "." +
+                savedTheme +
+                "-card"
+            );
+
+
+        if(selectedCard){
+
+            selectedCard.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+
+    if(savedName){
+
+        document.getElementById(
+            "username"
+        ).value =
+            savedName;
+
+    }
+
+
+    if(savedNote){
+
+        document.getElementById(
+            "sessionNote"
+        ).value =
+            savedNote;
+
+    }
+
+
+    updatePreview();
+
+};
+
+
+
+/* =====================================
+   CLEAR PREFERENCES
+===================================== */
+
+function clearPreferences(){
+
+
+    const confirmReset =
+        confirm(
+            "Do you want to reset all saved preferences?"
+        );
+
+
+    if(confirmReset){
+
+
+        /*
+           Remove localStorage data
+        */
+
+        localStorage.removeItem(
+            "username"
+        );
+
+
+        localStorage.removeItem(
+            "theme"
+        );
+
+
+        /*
+           Remove sessionStorage data
+        */
+
+        sessionStorage.removeItem(
+            "sessionNote"
+        );
+
+
+        document
+        .getElementById("username")
+        .value = "";
+
+
+        document
+        .getElementById("sessionNote")
+        .value = "";
+
+
+        selectedTheme =
+            "sunset";
+
+
+        document.body.className =
+            "sunset";
+
+
+        const cards =
+            document.querySelectorAll(
+                ".theme-card"
+            );
+
+
+        cards.forEach(function(card){
+
+            card.classList.remove(
+                "active"
+            );
+
+        });
+
+
+        document
+        .querySelector(
+            ".sunset-card"
+        )
+        .classList
+        .add("active");
+
+
+        updatePreview();
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+</html>
+```
