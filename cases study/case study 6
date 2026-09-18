@@ -1,0 +1,1076 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nandini Daharwal | 24070521152</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+    padding:40px 20px;
+
+    background:
+        radial-gradient(circle at top left,#ffd6e8,transparent 35%),
+        radial-gradient(circle at bottom right,#c7e9ff,transparent 35%),
+        linear-gradient(135deg,#fff4fa,#f0f5ff,#f4efff);
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:rgba(255,255,255,.95);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 55px rgba(70,60,130,.18);
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    padding:38px 25px;
+    color:white;
+
+    background:
+        linear-gradient(120deg,#6c5ce7,#0984e3,#00b894);
+}
+
+.header h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.header p{
+    opacity:.9;
+    font-size:15px;
+}
+
+.student{
+    display:inline-block;
+    margin-top:16px;
+    padding:9px 20px;
+
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.3);
+
+    border-radius:30px;
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    padding:30px;
+}
+
+.intro{
+    padding:16px 20px;
+    margin-bottom:25px;
+
+    background:linear-gradient(90deg,#f1efff,#eaf8ff);
+
+    border-left:5px solid #6c5ce7;
+    border-radius:12px;
+
+    line-height:1.6;
+    color:#555;
+}
+
+/* SECTION */
+
+.section{
+    background:white;
+    margin-bottom:22px;
+    padding:25px;
+
+    border-radius:18px;
+
+    border:1px solid #eee;
+
+    box-shadow:
+        0 7px 25px rgba(60,60,100,.08);
+
+    transition:.3s;
+}
+
+.section:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(60,60,100,.13);
+}
+
+.section h2{
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.section p{
+    color:#777;
+    margin-bottom:18px;
+}
+
+/* Different heading colours */
+
+.reverse-title{
+    color:#6c5ce7;
+}
+
+.vowel-title{
+    color:#e84393;
+}
+
+.operation-title{
+    color:#008f78;
+}
+
+/* INPUT */
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#444;
+}
+
+input,
+textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:2px solid #e4e4f2;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    margin-bottom:15px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+
+    border-color:#6c5ce7;
+
+    box-shadow:
+        0 0 0 4px rgba(108,92,231,.10);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* BUTTON */
+
+button{
+
+    border:none;
+
+    padding:11px 20px;
+
+    border-radius:25px;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-right:8px;
+
+    transition:.3s;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.12);
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+.reverse-btn{
+    background:
+        linear-gradient(90deg,#6c5ce7,#a55eea);
+}
+
+.vowel-btn{
+    background:
+        linear-gradient(90deg,#e84393,#fd79a8);
+}
+
+.operation-btn{
+    background:
+        linear-gradient(90deg,#00b894,#00cec9);
+}
+
+.clear-btn{
+    background:
+        linear-gradient(90deg,#636e72,#2d3436);
+}
+
+/* RESULT */
+
+.result{
+
+    display:none;
+
+    margin-top:18px;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(135deg,#20212b,#303142);
+
+    color:#f8f8f2;
+
+    animation:fade .4s;
+}
+
+.result.show{
+    display:block;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* REVERSE RESULT */
+
+.big-result{
+
+    font-size:21px;
+
+    color:#74b9ff;
+
+    font-weight:bold;
+
+    margin-top:8px;
+}
+
+/* STAT CARDS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.stat{
+
+    padding:18px;
+
+    border-radius:13px;
+
+    text-align:center;
+
+    color:#333;
+}
+
+.stat:nth-child(1){
+    background:#fce4f1;
+}
+
+.stat:nth-child(2){
+    background:#e5f4ff;
+}
+
+.stat:nth-child(3){
+    background:#e3faef;
+}
+
+.number{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#6c5ce7;
+}
+
+.stat-label{
+
+    font-size:13px;
+
+    margin-top:5px;
+
+    color:#666;
+}
+
+/* VOWEL DETAILS */
+
+.vowel-details{
+
+    background:#292a37;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    line-height:1.8;
+}
+
+/* STRING OPERATIONS */
+
+.operations-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:15px;
+}
+
+.operation-box{
+
+    padding:18px;
+
+    background:#f8f7ff;
+
+    border-radius:13px;
+
+    border:1px solid #e5e3ff;
+
+    color:#333;
+}
+
+.operation-box h3{
+
+    color:#6c5ce7;
+
+    margin-bottom:8px;
+
+    font-size:15px;
+}
+
+.operation-box p{
+
+    color:#555;
+
+    margin:0;
+
+    word-break:break-word;
+}
+
+/* FOOTER */
+
+.footer{
+
+    padding:20px;
+
+    text-align:center;
+
+    background:#f8f7ff;
+
+    color:#777;
+
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .stats,
+    .operations-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>🔤 String Functions Lab</h1>
+
+<p>
+Interactive JavaScript String Analysis Dashboard
+</p>
+
+<div class="student">
+
+👩‍💻 Nandini Daharwal
+&nbsp; | &nbsp;
+PRN: 24070521152
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+
+<div class="intro">
+
+💡 <b>String Playground:</b>
+Enter your own text and explore different JavaScript
+string functions such as
+<b>split(), reverse(), join(), substring(),
+indexOf() and replace()</b>.
+
+</div>
+
+
+<!-- =========================
+     REVERSE STRING
+========================= -->
+
+<div class="section">
+
+<h2 class="reverse-title">
+🔄 1. Reverse a String
+</h2>
+
+<p>
+Enter any word or sentence and JavaScript will
+reverse it instantly.
+</p>
+
+<label>
+Enter a String
+</label>
+
+<input
+type="text"
+id="inputString"
+placeholder="Example: Hello Nandini"
+>
+
+<button
+class="reverse-btn"
+onclick="reverseString()">
+
+✨ Reverse String
+
+</button>
+
+<button
+class="clear-btn"
+onclick="clearReverse()">
+
+Clear
+
+</button>
+
+
+<div
+id="reverseResult"
+class="result">
+
+Original String:
+
+<div id="originalText"></div>
+
+<br>
+
+Reversed String:
+
+<div
+id="reversedText"
+class="big-result">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     VOWEL COUNTER
+========================= -->
+
+<div class="section">
+
+<h2 class="vowel-title">
+🔎 2. Smart Vowel & Text Analyzer
+</h2>
+
+<p>
+Enter a paragraph to calculate vowels,
+consonants and total characters.
+</p>
+
+<label>
+Enter Paragraph
+</label>
+
+<textarea
+id="paragraph"
+placeholder="Type your paragraph here...">
+</textarea>
+
+
+<button
+class="vowel-btn"
+onclick="countVowels()">
+
+📊 Analyze Text
+
+</button>
+
+
+<button
+class="clear-btn"
+onclick="clearVowels()">
+
+Clear
+
+</button>
+
+
+<div
+id="vowelResult"
+class="result">
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div
+class="number"
+id="totalVowels">
+0
+</div>
+
+<div class="stat-label">
+Vowels
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+class="number"
+id="totalConsonants">
+0
+</div>
+
+<div class="stat-label">
+Consonants
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+class="number"
+id="totalChars">
+0
+</div>
+
+<div class="stat-label">
+Characters
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="vowel-details">
+
+<strong>
+🔤 Individual Vowel Count
+</strong>
+
+<div id="vowelDetails">
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     STRING OPERATIONS
+========================= -->
+
+<div class="section">
+
+<h2 class="operation-title">
+⚙️ 3. String Operations Laboratory
+</h2>
+
+<p>
+Test common JavaScript string methods
+on your own text.
+</p>
+
+
+<label>
+Enter Text
+</label>
+
+
+<input
+type="text"
+id="demoString"
+placeholder="Example: JavaScript is amazing"
+>
+
+
+<button
+class="operation-btn"
+onclick="performOperations()">
+
+🚀 Perform Operations
+
+</button>
+
+
+<div
+id="operationsResult"
+class="result">
+
+
+<div class="operations-grid">
+
+
+<div class="operation-box">
+
+<h3>
+✂ substring(0,5)
+</h3>
+
+<p id="substringResult">
+-
+</p>
+
+</div>
+
+
+<div class="operation-box">
+
+<h3>
+📍 indexOf()
+</h3>
+
+<p id="indexOfResult">
+-
+</p>
+
+</div>
+
+
+<div class="operation-box">
+
+<h3>
+🧩 split()
+</h3>
+
+<p id="splitResult">
+-
+</p>
+
+</div>
+
+
+<div class="operation-box">
+
+<h3>
+🔁 replace()
+</h3>
+
+<p id="replaceResult">
+-
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+💻 JavaScript String Functions Practical
+&nbsp; • &nbsp;
+Nandini Daharwal
+&nbsp; • &nbsp;
+24070521152
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ================================
+   1. REVERSE STRING
+================================ */
+
+function reverseString(){
+
+const input =
+document.getElementById("inputString").value;
+
+
+if(input.trim() === ""){
+
+alert("Please enter a string first!");
+
+return;
+
+}
+
+
+/* split → reverse → join */
+
+const reversed =
+input
+.split("")
+.reverse()
+.join("");
+
+
+document
+.getElementById("originalText")
+.textContent = input;
+
+
+document
+.getElementById("reversedText")
+.textContent = reversed;
+
+
+document
+.getElementById("reverseResult")
+.classList.add("show");
+
+}
+
+
+
+/* CLEAR REVERSE */
+
+function clearReverse(){
+
+document
+.getElementById("inputString")
+.value = "";
+
+
+document
+.getElementById("reverseResult")
+.classList.remove("show");
+
+}
+
+
+
+/* ================================
+   2. VOWEL COUNTER
+================================ */
+
+function countVowels(){
+
+const text =
+document.getElementById("paragraph").value;
+
+
+if(text.trim() === ""){
+
+alert("Please enter a paragraph first!");
+
+return;
+
+}
+
+
+/* Find vowels */
+
+const vowels =
+text.match(/[aeiouAEIOU]/g) || [];
+
+
+/* Find consonants */
+
+const consonants =
+text.match(
+/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g
+) || [];
+
+
+/* Characters without spaces */
+
+const totalCharacters =
+text.replace(/\s/g,"").length;
+
+
+/* Display totals */
+
+document
+.getElementById("totalVowels")
+.textContent = vowels.length;
+
+
+document
+.getElementById("totalConsonants")
+.textContent = consonants.length;
+
+
+document
+.getElementById("totalChars")
+.textContent = totalCharacters;
+
+
+
+/* Individual vowel counter */
+
+const vowelCount = {
+
+a:0,
+e:0,
+i:0,
+o:0,
+u:0
+
+};
+
+
+text
+.toLowerCase()
+.split("")
+.forEach(character => {
+
+if(
+vowelCount.hasOwnProperty(character)
+){
+
+vowelCount[character]++;
+
+}
+
+});
+
+
+let details = "";
+
+
+for(let vowel in vowelCount){
+
+details +=
+
+`<p>
+🔹 ${vowel.toUpperCase()}
+→ ${vowelCount[vowel]} time(s)
+</p>`;
+
+}
+
+
+document
+.getElementById("vowelDetails")
+.innerHTML = details;
+
+
+document
+.getElementById("vowelResult")
+.classList.add("show");
+
+}
+
+
+
+/* CLEAR VOWELS */
+
+function clearVowels(){
+
+document
+.getElementById("paragraph")
+.value = "";
+
+
+document
+.getElementById("vowelResult")
+.classList.remove("show");
+
+}
+
+
+
+/* ================================
+   3. STRING OPERATIONS
+================================ */
+
+function performOperations(){
+
+const str =
+document
+.getElementById("demoString")
+.value;
+
+
+if(str.trim() === ""){
+
+alert(
+"Please enter a string first!"
+);
+
+return;
+
+}
+
+
+/* substring() */
+
+document
+.getElementById("substringResult")
+.textContent =
+str.substring(0,5);
+
+
+
+/* indexOf() */
+
+const spaceIndex =
+str.indexOf(" ");
+
+
+document
+.getElementById("indexOfResult")
+.textContent =
+
+spaceIndex !== -1
+
+? `First space found at index ${spaceIndex}`
+
+: "No spaces found";
+
+
+
+/* split() */
+
+const words =
+str.split(" ");
+
+
+document
+.getElementById("splitResult")
+.textContent =
+
+`${words.length} words → [ ${words.join(", ")} ]`;
+
+
+
+/* replace() */
+
+const replaced =
+str.replace(/\s/g,"-");
+
+
+document
+.getElementById("replaceResult")
+.textContent = replaced;
+
+
+
+document
+.getElementById("operationsResult")
+.classList.add("show");
+
+}
+
+
+
+/* ================================
+   ENTER KEY SUPPORT
+================================ */
+
+document
+.getElementById("inputString")
+.addEventListener(
+"keypress",
+function(event){
+
+if(event.key === "Enter"){
+
+reverseString();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
+```
