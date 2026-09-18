@@ -1,0 +1,1495 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nandini Daharwal | 24070521152</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+    padding:40px 20px;
+
+    background:
+        radial-gradient(circle at top left,#ffd8eb,transparent 35%),
+        radial-gradient(circle at bottom right,#c7e9ff,transparent 35%),
+        linear-gradient(135deg,#fff4fa,#eef7ff,#f3efff);
+}
+
+/* MAIN CARD */
+
+.container{
+    max-width:950px;
+    margin:auto;
+    background:rgba(255,255,255,.96);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(70,60,130,.18);
+}
+
+/* HEADER */
+
+.header{
+    padding:38px 25px;
+    text-align:center;
+    color:white;
+
+    background:
+        linear-gradient(120deg,#6c5ce7,#0984e3,#00b894);
+}
+
+.header h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.header p{
+    opacity:.9;
+    font-size:15px;
+}
+
+.student{
+    display:inline-block;
+    margin-top:16px;
+    padding:9px 20px;
+    border-radius:30px;
+
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.30);
+
+    font-weight:600;
+}
+
+/* CONTENT */
+
+.content{
+    padding:32px;
+}
+
+.intro{
+    padding:17px 20px;
+    margin-bottom:25px;
+
+    background:linear-gradient(90deg,#f1efff,#eaf8ff);
+
+    border-left:5px solid #6c5ce7;
+    border-radius:12px;
+
+    color:#555;
+    line-height:1.6;
+}
+
+/* FORM CARDS */
+
+fieldset{
+    border:none;
+    padding:25px;
+    margin-bottom:25px;
+
+    background:#fff;
+    border-radius:18px;
+
+    box-shadow:0 7px 25px rgba(70,70,110,.09);
+
+    border:1px solid #eee;
+
+    transition:.3s;
+}
+
+fieldset:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(70,70,110,.13);
+}
+
+legend{
+    padding:8px 18px;
+    border-radius:20px;
+
+    color:white;
+    font-weight:700;
+    font-size:16px;
+
+    background:
+        linear-gradient(90deg,#6c5ce7,#0984e3);
+}
+
+/* GRID */
+
+.inline-fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    color:#444;
+    font-size:14px;
+    font-weight:600;
+}
+
+.required{
+    color:#e84393;
+}
+
+/* INPUTS */
+
+input,
+select,
+textarea{
+
+    width:100%;
+    padding:13px 15px;
+
+    border:2px solid #e4e4f2;
+    border-radius:10px;
+
+    font-size:15px;
+    outline:none;
+
+    background:#fcfcff;
+
+    transition:.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#6c5ce7;
+
+    background:white;
+
+    box-shadow:
+        0 0 0 4px rgba(108,92,231,.10);
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+/* VALIDATION */
+
+input.error,
+select.error{
+    border-color:#ff5c7a;
+    background:#fff5f7;
+}
+
+input.success,
+select.success{
+    border-color:#00b894;
+    background:#f2fffb;
+}
+
+.error-message{
+    display:none;
+    margin-top:5px;
+    color:#e84393;
+    font-size:12px;
+}
+
+.error-message.show{
+    display:block;
+}
+
+.hint{
+    margin-top:5px;
+    color:#888;
+    font-size:12px;
+}
+
+/* PASSWORD */
+
+.password-box{
+    margin-top:10px;
+    padding:13px 15px;
+
+    border-radius:10px;
+    background:#f8f7ff;
+
+    font-size:12px;
+}
+
+.requirement{
+    margin:5px 0;
+    color:#777;
+}
+
+.requirement.met{
+    color:#00a878;
+    font-weight:600;
+}
+
+.requirement.not-met{
+    color:#e84393;
+}
+
+/* CHARACTER COUNT */
+
+.char-count{
+    text-align:right;
+    margin-top:5px;
+    font-size:12px;
+    color:#777;
+}
+
+.char-count.warning{
+    color:#e67e22;
+}
+
+.char-count.danger{
+    color:#e84393;
+    font-weight:bold;
+}
+
+/* BUTTONS */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+}
+
+button{
+    flex:1;
+    padding:14px;
+
+    border:none;
+    border-radius:30px;
+
+    color:white;
+    font-size:15px;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn{
+    background:
+        linear-gradient(90deg,#6c5ce7,#0984e3);
+}
+
+.reset-btn{
+    background:
+        linear-gradient(90deg,#ff7675,#e84393);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+
+/* SUCCESS */
+
+.success-message{
+    display:none;
+
+    margin-top:25px;
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(120deg,#00b894,#00cec9);
+
+    color:white;
+
+    animation:fade .4s;
+}
+
+.success-message.show{
+    display:block;
+}
+
+.success-message h2{
+    margin-bottom:7px;
+}
+
+/* EVENT LOG */
+
+.event-log{
+    margin-top:28px;
+    padding:22px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(135deg,#20212b,#303142);
+
+    color:white;
+}
+
+.event-log h3{
+    margin-bottom:15px;
+    color:#74b9ff;
+}
+
+.log-entry{
+    padding:9px 12px;
+    margin-bottom:7px;
+
+    background:rgba(255,255,255,.08);
+
+    border-left:3px solid #00cec9;
+
+    border-radius:7px;
+
+    font-size:13px;
+
+    animation:slide .3s;
+}
+
+@keyframes slide{
+
+    from{
+        opacity:0;
+        transform:translateX(-15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fade{
+
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* FOOTER */
+
+.footer{
+    padding:20px;
+    text-align:center;
+
+    background:#f8f7ff;
+
+    color:#777;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .inline-fields{
+        grid-template-columns:1fr;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .content{
+        padding:20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>📝 Smart Registration Portal</h1>
+
+<p>
+JavaScript Event Handling & Form Validation
+</p>
+
+<div class="student">
+
+👩‍💻 Nandini Daharwal
+&nbsp; | &nbsp;
+PRN: 24070521152
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+
+<div class="intro">
+
+💡 <b>Interactive Form:</b>
+This practical demonstrates JavaScript
+<b>form validation, focus, blur, change, input,
+submit and reset events</b> with real-time
+validation and event tracking.
+
+</div>
+
+
+
+<form id="registrationForm" novalidate>
+
+
+<!-- ===============================
+     PERSONAL INFORMATION
+================================ -->
+
+<fieldset>
+
+<legend>👤 Personal Information</legend>
+
+
+<div class="inline-fields">
+
+
+<div class="form-group">
+
+<label>
+First Name
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="firstName"
+name="firstName"
+placeholder="Enter first name"
+>
+
+<div
+class="error-message"
+id="firstNameError">
+⚠ Please enter your first name.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Last Name
+<span class="required">*</span>
+</label>
+
+<input
+type="text"
+id="lastName"
+name="lastName"
+placeholder="Enter last name"
+>
+
+<div
+class="error-message"
+id="lastNameError">
+⚠ Please enter your last name.
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+📧 Email Address
+<span class="required">*</span>
+</label>
+
+<input
+type="email"
+id="email"
+name="email"
+placeholder="example@email.com"
+>
+
+<div
+class="error-message"
+id="emailError">
+⚠ Please enter a valid email address.
+</div>
+
+<div class="hint">
+Your email must contain @ and a valid domain.
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+📱 Phone Number
+<span class="required">*</span>
+</label>
+
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="Enter 10-digit mobile number"
+>
+
+<div
+class="error-message"
+id="phoneError">
+⚠ Please enter a valid 10-digit phone number.
+</div>
+
+</div>
+
+</fieldset>
+
+
+
+<!-- ===============================
+     ACCOUNT DETAILS
+================================ -->
+
+<fieldset>
+
+<legend>🔐 Account Details</legend>
+
+
+<div class="form-group">
+
+<label>
+Password
+<span class="required">*</span>
+</label>
+
+<input
+type="password"
+id="password"
+name="password"
+placeholder="Create a strong password"
+>
+
+<div
+class="error-message"
+id="passwordError">
+⚠ Password does not meet the requirements.
+</div>
+
+
+<div class="password-box">
+
+<b>🔑 Password Requirements</b>
+
+<div
+class="requirement"
+id="req-length">
+⚫ At least 8 characters
+</div>
+
+<div
+class="requirement"
+id="req-lowercase">
+⚫ Contains lowercase letter
+</div>
+
+<div
+class="requirement"
+id="req-uppercase">
+⚫ Contains uppercase letter
+</div>
+
+<div
+class="requirement"
+id="req-number">
+⚫ Contains number
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Confirm Password
+<span class="required">*</span>
+</label>
+
+<input
+type="password"
+id="confirmPassword"
+name="confirmPassword"
+placeholder="Re-enter password"
+>
+
+<div
+class="error-message"
+id="confirmPasswordError">
+⚠ Passwords do not match.
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+🌍 Country
+<span class="required">*</span>
+</label>
+
+<select
+id="country"
+name="country">
+
+<option value="">
+Select your country
+</option>
+
+<option value="india">
+India
+</option>
+
+<option value="usa">
+United States
+</option>
+
+<option value="uk">
+United Kingdom
+</option>
+
+<option value="australia">
+Australia
+</option>
+
+<option value="canada">
+Canada
+</option>
+
+<option value="other">
+Other
+</option>
+
+</select>
+
+<div
+class="error-message"
+id="countryError">
+⚠ Please select your country.
+</div>
+
+</div>
+
+</fieldset>
+
+
+
+<!-- ===============================
+     ADDITIONAL INFORMATION
+================================ -->
+
+<fieldset>
+
+<legend>✨ Additional Information</legend>
+
+
+<div class="form-group">
+
+<label>
+✍️ Brief Bio
+</label>
+
+<textarea
+id="bio"
+name="bio"
+placeholder="Tell us something about yourself..."
+maxlength="200">
+</textarea>
+
+<div
+class="char-count"
+id="charCount">
+0 / 200 characters
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+🎂 Age
+</label>
+
+<input
+type="number"
+id="age"
+name="age"
+placeholder="Enter your age"
+min="1"
+max="120"
+>
+
+<div
+class="error-message"
+id="ageError">
+⚠ Age must be between 1 and 120.
+</div>
+
+</div>
+
+</fieldset>
+
+
+
+<!-- BUTTONS -->
+
+<div class="button-group">
+
+<button
+type="submit"
+class="submit-btn">
+
+🚀 Submit Registration
+
+</button>
+
+
+<button
+type="reset"
+class="reset-btn">
+
+🔄 Reset Form
+
+</button>
+
+</div>
+
+
+</form>
+
+
+
+<!-- SUCCESS -->
+
+<div
+class="success-message"
+id="successMessage">
+
+<h2>
+🎉 Registration Successful!
+</h2>
+
+<p>
+Your information has been validated successfully.
+</p>
+
+</div>
+
+
+
+<!-- EVENT LOG -->
+
+<div class="event-log">
+
+<h3>
+📊 Live JavaScript Event Log
+</h3>
+
+<div id="logContainer">
+
+<div class="log-entry">
+🚀 Form loaded — Start interacting with the fields.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+💻 JavaScript Event Handling & Form Validation
+&nbsp; • &nbsp;
+Nandini Daharwal
+&nbsp; • &nbsp;
+24070521152
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================
+   ELEMENTS
+===================================== */
+
+const form =
+document.getElementById("registrationForm");
+
+const logContainer =
+document.getElementById("logContainer");
+
+const successMessage =
+document.getElementById("successMessage");
+
+
+
+/* =====================================
+   EVENT LOG
+===================================== */
+
+function logEvent(eventName,fieldName=""){
+
+const time =
+new Date().toLocaleTimeString();
+
+const entry =
+document.createElement("div");
+
+entry.className =
+"log-entry";
+
+entry.textContent =
+`[${time}] ${eventName}
+${fieldName ? " → " + fieldName : ""}`;
+
+logContainer.insertBefore(
+entry,
+logContainer.firstChild
+);
+
+
+/* Keep latest 8 events */
+
+while(
+logContainer.children.length > 8
+){
+
+logContainer.removeChild(
+logContainer.lastChild
+);
+
+}
+
+}
+
+
+
+/* =====================================
+   EMAIL VALIDATION
+===================================== */
+
+function validateEmail(email){
+
+const pattern =
+/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+return pattern.test(email);
+
+}
+
+
+
+/* =====================================
+   PHONE VALIDATION
+===================================== */
+
+function validatePhone(phone){
+
+const digits =
+phone.replace(/\D/g,"");
+
+return digits.length === 10;
+
+}
+
+
+
+/* =====================================
+   PASSWORD VALIDATION
+===================================== */
+
+function validatePassword(password){
+
+const checks = {
+
+length:
+password.length >= 8,
+
+lowercase:
+/[a-z]/.test(password),
+
+uppercase:
+/[A-Z]/.test(password),
+
+number:
+/\d/.test(password)
+
+};
+
+
+updateRequirement(
+"req-length",
+checks.length
+);
+
+updateRequirement(
+"req-lowercase",
+checks.lowercase
+);
+
+updateRequirement(
+"req-uppercase",
+checks.uppercase
+);
+
+updateRequirement(
+"req-number",
+checks.number
+);
+
+
+return (
+checks.length &&
+checks.lowercase &&
+checks.uppercase &&
+checks.number
+);
+
+}
+
+
+
+/* PASSWORD REQUIREMENT DISPLAY */
+
+function updateRequirement(id,met){
+
+const element =
+document.getElementById(id);
+
+let text =
+element.textContent.substring(2);
+
+
+if(met){
+
+element.className =
+"requirement met";
+
+element.textContent =
+"✅ " + text;
+
+}
+
+else{
+
+element.className =
+"requirement not-met";
+
+element.textContent =
+"⚫ " + text;
+
+}
+
+}
+
+
+
+/* =====================================
+   ERROR / SUCCESS DISPLAY
+===================================== */
+
+function showError(id,show=true){
+
+const field =
+document.getElementById(id);
+
+const error =
+document.getElementById(
+id + "Error"
+);
+
+
+if(show){
+
+field.classList.add("error");
+
+field.classList.remove("success");
+
+if(error)
+error.classList.add("show");
+
+}
+
+else{
+
+field.classList.remove("error");
+
+field.classList.add("success");
+
+if(error)
+error.classList.remove("show");
+
+}
+
+}
+
+
+
+/* =====================================
+   VALIDATE INDIVIDUAL FIELD
+===================================== */
+
+function validateField(id){
+
+const field =
+document.getElementById(id);
+
+const value =
+field.value.trim();
+
+let valid = true;
+
+
+switch(id){
+
+
+case "firstName":
+
+case "lastName":
+
+valid =
+value.length > 0;
+
+break;
+
+
+
+case "email":
+
+valid =
+validateEmail(value);
+
+break;
+
+
+
+case "phone":
+
+valid =
+validatePhone(value);
+
+break;
+
+
+
+case "password":
+
+valid =
+validatePassword(value);
+
+break;
+
+
+
+case "confirmPassword":
+
+const password =
+document
+.getElementById("password")
+.value;
+
+valid =
+value !== "" &&
+value === password;
+
+break;
+
+
+
+case "country":
+
+valid =
+value !== "";
+
+break;
+
+
+
+case "age":
+
+const age =
+Number(value);
+
+valid =
+value === "" ||
+(age >= 1 && age <= 120);
+
+break;
+
+}
+
+
+showError(id,!valid);
+
+return valid;
+
+}
+
+
+
+/* =====================================
+   FOCUS / BLUR / CHANGE EVENTS
+===================================== */
+
+const inputs =
+form.querySelectorAll(
+"input, select, textarea"
+);
+
+
+inputs.forEach(input => {
+
+
+/* FOCUS */
+
+input.addEventListener(
+"focus",
+function(){
+
+logEvent(
+"🎯 Focus Event",
+this.name || this.id
+);
+
+}
+);
+
+
+/* BLUR */
+
+input.addEventListener(
+"blur",
+function(){
+
+logEvent(
+"👋 Blur Event",
+this.name || this.id
+);
+
+validateField(this.id);
+
+}
+);
+
+
+/* CHANGE */
+
+input.addEventListener(
+"change",
+function(){
+
+logEvent(
+"🔄 Change Event",
+this.name || this.id
+);
+
+}
+);
+
+
+/* INPUT */
+
+input.addEventListener(
+"input",
+function(){
+
+if(this.id === "password"){
+
+validatePassword(
+this.value
+);
+
+}
+
+}
+);
+
+
+});
+
+
+
+/* =====================================
+   BIO CHARACTER COUNTER
+===================================== */
+
+const bio =
+document.getElementById("bio");
+
+const charCount =
+document.getElementById("charCount");
+
+
+bio.addEventListener(
+"input",
+function(){
+
+const length =
+this.value.length;
+
+charCount.textContent =
+`${length} / 200 characters`;
+
+charCount.classList.remove(
+"warning",
+"danger"
+);
+
+
+if(length >= 180){
+
+charCount.classList.add(
+"danger"
+);
+
+}
+
+else if(length >= 150){
+
+charCount.classList.add(
+"warning"
+);
+
+}
+
+}
+);
+
+
+
+/* =====================================
+   FORM SUBMISSION
+===================================== */
+
+form.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+logEvent(
+"📨 Submit Event"
+);
+
+
+const requiredFields = [
+
+"firstName",
+"lastName",
+"email",
+"phone",
+"password",
+"confirmPassword",
+"country"
+
+];
+
+
+let validForm = true;
+
+
+requiredFields.forEach(
+id => {
+
+if(!validateField(id)){
+
+validForm = false;
+
+}
+
+}
+);
+
+
+/* AGE */
+
+if(
+document.getElementById("age").value !== "" &&
+!validateField("age")
+){
+
+validForm = false;
+
+}
+
+
+/* SUCCESS */
+
+if(validForm){
+
+successMessage
+.classList.add("show");
+
+logEvent(
+"✅ Success",
+"Form validated"
+);
+
+
+successMessage.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+
+setTimeout(
+()=>{
+
+successMessage
+.classList.remove("show");
+
+},
+5000
+);
+
+}
+
+else{
+
+logEvent(
+"❌ Validation Error"
+);
+
+alert(
+"Please correct the highlighted fields before submitting."
+);
+
+}
+
+}
+);
+
+
+
+/* =====================================
+   RESET EVENT
+===================================== */
+
+form.addEventListener(
+"reset",
+function(){
+
+logEvent(
+"🔄 Reset Event"
+);
+
+successMessage
+.classList.remove("show");
+
+
+inputs.forEach(
+input => {
+
+input.classList.remove(
+"error",
+"success"
+);
+
+}
+);
+
+
+document
+.querySelectorAll(
+".error-message"
+)
+.forEach(
+message =>
+message.classList.remove("show")
+);
+
+
+setTimeout(
+()=>{
+
+charCount.textContent =
+"0 / 200 characters";
+
+},
+50
+);
+
+}
+);
+
+
+
+/* =====================================
+   ENTER KEY EVENT
+===================================== */
+
+document.addEventListener(
+"keypress",
+function(event){
+
+if(
+event.key === "Enter" &&
+event.target.tagName === "INPUT"
+){
+
+logEvent(
+"⌨ Enter Key",
+event.target.name
+);
+
+}
+
+}
+);
+
+</script>
+
+</body>
+</html>
+```
